@@ -8,9 +8,14 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 """
-text_box = input
-text_box = input_translated
-
+자체 에디터 사용해서 번역:
+  -INPUT FIELD(한국어) : self.text_box = Text(self.bottom_frame, height=25, width=100)
+  -OUTPUT FIELD(영어) : self.text_box2 = Text(self.bottom_frame, height=25, width=100)
+        
+기능:
+  -self.btn_open = Button(fr_buttons, text="열기", command=open_file)
+  -self.btn_save = Button(fr_buttons, text="저장하기", command=save_file)
+  -self.btn_translate = Button(fr_buttons, text="번역하기", command=translate_file)
 """
 
 class MyApp:
