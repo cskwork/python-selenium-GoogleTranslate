@@ -57,9 +57,7 @@ class MyApp:
             search_input_box = driver.find_elements_by_css_selector("[aria-label='원본 텍스트']")
 
             print(search_input_box)
-
-           # search_input_box[0].send_keys(text)
-
+            # search_input_box[0].send_keys(text)
             #query = WebDriverWait(self.text_box, 5).until(EC.visibility_of_element_located((By.CSS_SELECTOR, "[aria-label='원본 텍스트']")))
             #search_input_box[0].send_keys(text)
             #WebDriverWait(self.text_box, 5).until(lambda text_box: query.get_attribute('value') == text)
@@ -88,13 +86,9 @@ class MyApp:
                     break
                 # if not same, continue the loop with increased waiting time
                 n = n + 5
-
 ###------------------------------------------------
-
-
             #SET WAIT TIME
             wait = WebDriverWait(driver, 10);
-
             #wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "[data-language-code='en']")))
 
             obj=driver.find_elements_by_xpath('//button[contains(concat(" ", normalize-space(@data-language-code)," "),"en")][1]')
@@ -108,38 +102,28 @@ class MyApp:
             selectLang = driver.find_elements_by_xpath('//div[contains(concat(" ", normalize-space(@data-language-code)," "),"en")]')
             selectLang[1].click()
             for a in selectLang:
-                print('test')
                 print(a)
-
-
-
-           #TEST
             print("TEST SUCCESS")
-
             #wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "[data-language-for-alternatives='en']")))
-
-           # translated_text=driver.find_elements_by_css_selector("[data-language-for-alternatives='en']")#/following-sibling::div
-
+            # translated_text=driver.find_elements_by_css_selector("[data-language-for-alternatives='en']")#/following-sibling::div
             translated_text = driver.find_elements_by_xpath('//span[@data-language-for-alternatives="en"]/span')
-
             #print(translated_text)
             for a in translated_text:
                 textOnly = a.get_attribute('innerHTML')
                 print(a.get_attribute('innerHTML'))
-
             #engTranslateBtn = driver.find_elements_by_css_selector("[data-language-code='en']")
             #wait=WebDriverWait(driver, 10);
             #wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "[data-language-code='en']"))).click()
             #engTranslateBtn[1].click();
-           # engTranslateBtn.click()
+            # engTranslateBtn.click()
 
-#한글 영어로 번역해보자. 구글로 번역해서 grammarly로 문법을 체크해 본다.
+            #다음 기능-한글 영어로 번역해보자. 구글로 번역해서 grammarly로 문법을 체크해 본다.
 
             self.text_box2.delete(1.0, tk.END)
             self.text_box2.insert(1.0, textOnly)
             driver.close()
 
-
+        """--------파이선 자체 텍스트 에디터 사용--------""" 
         #1 MAKE CONTAINER
         self.myParent = parent
         self.main_container = Frame(parent)
@@ -203,9 +187,8 @@ myapp = MyApp(root)
 root.mainloop()
 
 """
+참고한 리소스
 https://stackoverflow.com/questions/14946963/tkinter-grid-how-to-position-widgets-so-they-are-not-stuck-together
-
 https://www.qafox.com/selenium-locators-using-first-child-in-css-selectors/
-
 https://www.seleniumeasy.com/selenium-tutorials/examples-for-xpath-and-css-selectors
 """
